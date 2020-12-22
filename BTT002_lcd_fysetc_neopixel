@@ -1,0 +1,35 @@
+########################################
+# EXP1 / EXP2 (display) pins
+########################################
+
+[board_pins]
+aliases:
+    # EXP1 header
+    EXP1_2=PB1, EXP1_4=PE8, EXP1_6=PE11, EXP1_8=PE13, EXP1_10=<5V>,
+    EXP1_1=PE7, EXP1_3=PE9, EXP1_5=PE10, EXP1_7=PE12, EXP1_9=<GND>,
+    # EXP2 header
+    EXP2_2=PA5, EXP2_4=PA4, EXP2_6=PA7, EXP2_8=<RST>, EXP2_10=PF13
+    EXP2_1=PA6, EXP2_3=PC5, EXP2_5=PB0, EXP2_7=PC4,  EXP2_9=<GND>,
+    
+[display]
+lcd_type: uc1701
+cs_pin: EXP1_3
+a0_pin: EXP1_4
+rst_pin: EXP1_5
+contrast: 63
+encoder_pins: ^EXP2_5, ^EXP2_3
+click_pin: ^!EXP1_2
+spi_software_miso_pin: PA6
+spi_software_mosi_pin: PA7
+spi_software_sclk_pin: PA5
+
+[neopixel fysetc_mini12864]
+pin: EXP1_6
+chain_count: 3
+color_order: RGB
+initial_RED: 0.9
+initial_GREEN: 0.4
+initial_BLUE: 0.0
+
+[output_pin beeper]
+pin: EXP1_1
